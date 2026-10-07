@@ -1,0 +1,1 @@
+<?php require_once '../config/auth.php';$pdo->prepare("UPDATE followups SET status='completed',completed_at=NOW() WHERE id=?")->execute([(int)($_GET['id']??0)]);header('Location:index.php');exit;?>

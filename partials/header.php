@@ -1,0 +1,9 @@
+<?php require_once __DIR__.'/../config/auth.php';require_login();$base=$base??'';$page_title=$page_title??'ProCRM';?>
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title><?=e($page_title)?> | ProCRM</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"><link href="<?=$base?>assets/css/style.css" rel="stylesheet"></head><body>
+<div class="app-shell"><aside class="sidebar"><a class="brand" href="<?=$base?>dashboard.php">Pro<span>CRM</span></a><div class="user-mini"><div class="avatar"><?=e(strtoupper(substr($_SESSION['name'],0,1)))?></div><div><b><?=e($_SESSION['name'])?></b><small><?=e(ucfirst($_SESSION['role']))?></small></div></div>
+<nav class="nav flex-column mt-3">
+<a href="<?=$base?>dashboard.php"><i class="bi bi-grid"></i>Dashboard</a><a href="<?=$base?>customers/index.php"><i class="bi bi-people"></i>Customers</a><a href="<?=$base?>leads/index.php"><i class="bi bi-funnel"></i>Leads</a><a href="<?=$base?>deals/index.php"><i class="bi bi-currency-dollar"></i>Deals</a><a href="<?=$base?>followups/index.php"><i class="bi bi-calendar-check"></i>Follow-ups</a><a href="<?=$base?>reports/index.php"><i class="bi bi-bar-chart"></i>Reports</a>
+<?php if($_SESSION['role']==='admin'):?><a href="<?=$base?>users/index.php"><i class="bi bi-shield-lock"></i>Users</a><?php endif;?>
+</nav><div class="sidebar-bottom"><a href="<?=$base?>auth/logout.php"><i class="bi bi-box-arrow-right"></i>Logout</a></div></aside>
+<main class="main"><div class="topbar"><div><small class="text-muted">Workspace</small><h5 class="mb-0"><?=e($page_title)?></h5></div><span class="badge text-bg-light"><?=date('M d, Y')?></span></div><div class="content">

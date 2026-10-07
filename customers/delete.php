@@ -1,0 +1,1 @@
+<?php require_once '../config/auth.php';$pdo->prepare('DELETE FROM customers WHERE id=?')->execute([(int)($_GET['id']??0)]);header('Location:index.php');exit;?>
